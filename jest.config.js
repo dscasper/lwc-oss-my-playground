@@ -5,5 +5,10 @@ const { jestConfig } = require('lwc-services/lib/config/jestConfig');
 
 module.exports = {
     ...jestConfig,
-    transformIgnorePatterns: ['/node_modules/(?!lightning-base-components)']
+    transformIgnorePatterns: ['/node_modules/(?!lightning-base-components)'],
+    moduleNameMapper: {
+        "lightning/(.*)": [
+            "<rootDir>/node_modules/lightning-base-components/src/lightning/$1/$1.js"
+        ]
+    },
 };

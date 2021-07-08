@@ -3,6 +3,7 @@ import BasicCard from 'my/basiccard';
 import { afterEach, describe, expect, it } from '@jest/globals';
 
 describe('my-basiccard', () => {
+
     afterEach(() => {
         // The jsdom instance is shared across test cases in a single file so reset the DOM
         while (document.body.firstChild) {
@@ -17,18 +18,12 @@ describe('my-basiccard', () => {
         });
         document.body.appendChild(element);
 
+
         // Verify displayed greeting
         const div = element.shadowRoot.querySelector('div');
+        expect(div).toBeTruthy();
         expect(div.textContent).toBe('Hello, World!');
     });
 
-    it('is accessible', async () => {
-        const element = createElement('c-hello', {
-            is: BasicCard
-        });
 
-        document.body.appendChild(element);
-
-        await expect(element).toBeAccessible();
-    });
 });
