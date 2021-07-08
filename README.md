@@ -1,6 +1,6 @@
 # my-playground
 
-Here will be some information about the app.
+This is a lighting web component open source project for me to use to test and share code that I am playing with and trying to figure out.
 
 ## How to start?
 
