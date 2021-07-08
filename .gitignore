@@ -30,3 +30,6 @@ $RECYCLE.BIN/
 
 # Husky
 .husky
+/.idea/
+/src/client/SLDS/
+/.idea/

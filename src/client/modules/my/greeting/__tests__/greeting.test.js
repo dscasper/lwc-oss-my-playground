@@ -8,6 +8,7 @@
 
 import { createElement } from 'lwc';
 import MyGreeting from 'my/greeting';
+import { afterEach, describe, it, expect } from '@jest/globals';
 
 describe('my-greeting', () => {
     afterEach(() => {
