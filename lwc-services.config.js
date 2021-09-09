@@ -14,6 +14,6 @@ module.exports = {
     ],
     sourceDir: './src/client',
     devServer: {
-        proxy: { '/': 'http://localhost:3002' }
+        proxy: { '/': 'http://localhost:3008' }
     }
 };

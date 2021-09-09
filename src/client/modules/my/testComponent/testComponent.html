@@ -1,0 +1,21 @@
+<template>
+
+    <h2 class="slds-text-heading_small slds-m-bottom_small">
+        Click the button.
+    </h2>
+
+    <lightning-button variant="brand-outline"
+                      label="Child Comp"
+                      title="Primary action with lighter look"
+                      onclick={handleClick}
+                      class="slds-m-left_x-small">
+    </lightning-button>
+
+    <br/>
+
+    Child Button Event Value: {eventValue} <br/>
+
+    <my-child-comp
+            onchildevent={handleChildEvent}>
+    </my-child-comp>
+</template>
