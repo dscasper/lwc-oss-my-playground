@@ -11,7 +11,7 @@ app.use(helmet());
 app.use(compression());
 
 const HOST = 'localhost';
-const PORT = 3008;
+const PORT = 3002;
 
 const { RECAPTCHA_SITE_KEY, RECAPTCHA_SECRET_KEY } = process.env;
 if (!(RECAPTCHA_SITE_KEY && RECAPTCHA_SECRET_KEY)) {

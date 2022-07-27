@@ -1,0 +1,14 @@
+<template>
+
+    <button
+            class="slds-button"
+            title={title}>
+        <template if:true={hasIcon}>
+            <lightning-icon icon-name={iconName}
+                            alternative-text={label}
+                            title={title}>
+            </lightning-icon>
+        </template>
+        {label}
+    </button>
+</template>
