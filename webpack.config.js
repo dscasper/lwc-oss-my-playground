@@ -1,6 +1,9 @@
 const webpack = require("webpack");
+const path = require("path");
 require('dotenv').config();
-
+const LwcWebpackPlugin = require('lwc-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const variableValue = (variableSet) => {
     const name = variableSet.name;
@@ -18,20 +21,44 @@ const exposeEnvVariables = (variableSets) => {
 }
 
 module.exports = {
+    entry: ['./src/client'],
+    devServer: {
+        https: Boolean(process.env.HTTPS),
+        proxy: { '/': 'http://localhost:3002' },
+        port: 3001
+    },
     plugins: [
         new webpack.DefinePlugin({
-            /* Define ENV Variables to be used by the app here.
-             * WARNING: These are visible in browser javascript, so don't put anything here that
-             *          you wouldn't publish on the front page of the site */
             'process.env': exposeEnvVariables([
-                { name: 'HOSTED' },
-                { name: 'MULE_API_URL' },
-                { name: 'MULE_CLIENT_ID' },
-                { name: 'MULE_CLIENT_SECRET' },
-                { name: 'RECAPTCHA_SITE_KEY' },
-                { name: 'FORM_CENTER_URL' }
+                { name: 'RECAPTCHA_SITE_KEY' }
             ]),
         }),
+        new HtmlWebpackPlugin({
+            template: './src/client/index.html'
+        }),
+        new LwcWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'src/client/resources/'),
+                    to: path.resolve(__dirname, 'dist/resources/')
+                },
+                {
+                    from: path.resolve(
+                        __dirname,
+                        'node_modules/@salesforce-ux/design-system/assets'
+                    ),
+                    to: path.resolve(__dirname, 'dist/SLDS')
+                },
+                {
+                    from: path.resolve(
+                        __dirname,
+                        'node_modules/@salesforce-ux/design-system/assets'
+                    ),
+                    to: path.resolve(__dirname, 'src/client/SLDS')
+                }
+            ]
+        })
     ],
     stats: 'errors-only'
 };

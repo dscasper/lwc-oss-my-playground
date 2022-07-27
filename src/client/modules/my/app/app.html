@@ -1,21 +1,25 @@
 <template>
 
 
-<!--    Apply: {pages.apply.visible} <br />-->
-<!--    Current Page: {navigation.currentPage.title} <br />-->
-<!--    Previous Page: {navigation.previousPage.title} <br />-->
-<!--    Next Page: {navigation.nextPage.title} <br />-->
+    <input type="date"></input>
 
-<!--    <input type="button" value="Back" title="Back" onclick={handleBack} />-->
-<!--    <input type="button" value="Forward" title="Forward" onclick={handleForward} />-->
+    <my-date-picker></my-date-picker>
+
+    <!--    Apply: {pages.apply.visible} <br />-->
+    <!--    Current Page: {navigation.currentPage.title} <br />-->
+    <!--    Previous Page: {navigation.previousPage.title} <br />-->
+    <!--    Next Page: {navigation.nextPage.title} <br />-->
+
+    <!--    <input type="button" value="Back" title="Back" onclick={handleBack} />-->
+    <!--    <input type="button" value="Forward" title="Forward" onclick={handleForward} />-->
 
     <my-test-component
             ontestchildevent={handleTestChildEvent}
     ></my-test-component>
 
-    App Event Value: {eventValue} <br />
-    <br />
-<!--    Recaptcha-->
-<!--    <my-recaptcha></my-recaptcha>-->
+    App Event Value: {eventValue} <br/>
+    <br/>
+    <!--    Recaptcha-->
+    <!--    <my-recaptcha></my-recaptcha>-->
     <my-diff-component></my-diff-component>
 </template>
